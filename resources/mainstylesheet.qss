@@ -1,0 +1,11 @@
+QTreeWidget::item, QTreeWidget::selected::item, QTableView::item, QTableView::selected::item { 
+    border: 0px !important;
+    outline: 0px !important;
+}
+/*QTreeView::branch:closed:has-children:!has-siblings, QTreeView::branch:closed:has-children:has-siblings{
+    image: none;
+}
+
+QTreeView::branch:open:has-children:!has-siblings, QTreeView::branch:open:has-children:has-siblings{
+    image: none;
+}*/

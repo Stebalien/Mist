@@ -8,20 +8,14 @@ setup (
   version = '0.1',
   packages = find_packages(),
 
-  # Declare your packages' dependencies here, for eg:
-  install_requires=['foo>=3'],
+  install_requires=['mutagen', 'sqlalchemy'],
 
-  # Fill in these to make your Egg ready for upload to
-  # PyPI
   author = 'jonathan',
-  author_email = '',
+  author_email = 'jallen01@mit.edu',
 
-  summary = 'Just another Python package for the cheese shop',
+  summary = 'Manage music files accross multiple directories',
   url = '',
   license = '',
-  long_description= 'Long description of the package',
+  long_description= '',
 
-  # could also include long_description, download_url, classifiers, etc.
-
-  
 )

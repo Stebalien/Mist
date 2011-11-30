@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainwindow</class>
+ <widget class="QMainWindow" name="mainwindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>913</width>
+    <height>661</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Mist</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>913</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="fileMenu">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="importSongAction"/>
+    <addaction name="importDirectoryAction"/>
+    <addaction name="separator"/>
+    <addaction name="newPlaylistAction"/>
+    <addaction name="newRepositoryAction"/>
+    <addaction name="modifyCollectionAction"/>
+    <addaction name="deleteCollectionAction"/>
+    <addaction name="separator"/>
+    <addaction name="quitAction"/>
+   </widget>
+   <widget class="QMenu" name="editMenu">
+    <property name="title">
+     <string>Song</string>
+    </property>
+    <widget class="QMenu" name="addToPlaylistMenu">
+     <property name="title">
+      <string>Add to Playlist</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="addToRepositoryMenu">
+     <property name="title">
+      <string>Add to Repository</string>
+     </property>
+    </widget>
+    <addaction name="addToPlaylistMenu"/>
+    <addaction name="addToRepositoryMenu"/>
+    <addaction name="enqueueSongsAction"/>
+    <addaction name="clearSongQueueAction"/>
+    <addaction name="deleteSongAction"/>
+   </widget>
+   <widget class="QMenu" name="viewMenu">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="helpMenu">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="playbackMenu">
+    <property name="title">
+     <string>&amp;Playback</string>
+    </property>
+    <addaction name="playPauseAction"/>
+    <addaction name="separator"/>
+    <addaction name="previousAction"/>
+    <addaction name="nextAction"/>
+    <addaction name="separator"/>
+   </widget>
+   <addaction name="fileMenu"/>
+   <addaction name="editMenu"/>
+   <addaction name="viewMenu"/>
+   <addaction name="playbackMenu"/>
+   <addaction name="helpMenu"/>
+  </widget>
+  <widget class="QToolBar" name="playbackControlsBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::BottomToolBarArea</set>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>BottomToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="previousAction"/>
+   <addaction name="playPauseAction"/>
+   <addaction name="nextAction"/>
+  </widget>
+  <widget class="QDockWidget" name="leftDock_2">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>250</width>
+     <height>582</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>250</width>
+     <height>524287</height>
+    </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::NoDockWidgetFeatures</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_4">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="songCountLabel">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT Pro</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Song Count</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="collectionsListFrame">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="1" column="0">
+         <widget class="QTreeWidget" name="collectionsList">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+          <property name="midLineWidth">
+           <number>1</number>
+          </property>
+          <property name="dragDropMode">
+           <enum>QAbstractItemView::NoDragDrop</enum>
+          </property>
+          <property name="headerHidden">
+           <bool>false</bool>
+          </property>
+          <column>
+           <property name="text">
+            <string>Collections</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="searchInput">
+       <property name="placeholderText">
+        <string>      Search</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="tagNameFilter1"/>
+     </item>
+     <item>
+      <widget class="QComboBox" name="tagNameFilter2"/>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="songInfo">
+       <property name="title">
+        <string>Playing:</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="songTitleLabel">
+          <property name="font">
+           <font>
+            <family>Gill Sans MT Pro</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Title</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="songArtistLabel">
+          <property name="font">
+           <font>
+            <family>Gill Sans MT Pro</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Artist</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="songAlbumLabel">
+          <property name="font">
+           <font>
+            <family>Gill Sans MT Pro</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Album</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="taskLabel">
+       <property name="text">
+        <string>Task Label</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="progressBar">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="value">
+        <number>24</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="importSongAction">
+   <property name="text">
+    <string>Import Song</string>
+   </property>
+  </action>
+  <action name="deleteSongAction">
+   <property name="text">
+    <string>Delete Song</string>
+   </property>
+  </action>
+  <action name="playPauseAction">
+   <property name="text">
+    <string>Play</string>
+   </property>
+   <property name="toolTip">
+    <string>Play Song</string>
+   </property>
+  </action>
+  <action name="previousAction">
+   <property name="text">
+    <string>Previous</string>
+   </property>
+  </action>
+  <action name="nextAction">
+   <property name="text">
+    <string>Next</string>
+   </property>
+  </action>
+  <action name="quitAction">
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+  </action>
+  <action name="importDirectoryAction">
+   <property name="text">
+    <string>Import Directory</string>
+   </property>
+  </action>
+  <action name="newPlaylistAction">
+   <property name="text">
+    <string>New Playlist</string>
+   </property>
+  </action>
+  <action name="newRepositoryAction">
+   <property name="text">
+    <string>New Repository</string>
+   </property>
+  </action>
+  <action name="deleteCollectionAction">
+   <property name="text">
+    <string>Delete Collection</string>
+   </property>
+  </action>
+  <action name="modifyCollectionAction">
+   <property name="text">
+    <string>Modify Collection</string>
+   </property>
+  </action>
+  <action name="enqueueSongsAction">
+   <property name="text">
+    <string>Enqueue Selection</string>
+   </property>
+  </action>
+  <action name="clearSongQueueAction">
+   <property name="text">
+    <string>Clear Queue</string>
+   </property>
+  </action>
+  <action name="deleteTagsAction">
+   <property name="text">
+    <string>Delete Tags</string>
+   </property>
+  </action>
+  <action name="renameTagsAction">
+   <property name="text">
+    <string>Rename Tags</string>
+   </property>
+   <property name="toolTip">
+    <string>Rename one or more tags</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
